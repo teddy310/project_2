@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
   root 'products#index'
 
-  get 'contributions/index'
-
-  get 'contributions/show'
-
-  get 'contributions/edit'
-
-  get 'contributions/destroy'
-
-  get 'login' => 'sessions#new'
+  get 'login', to: 'sessions#new'
+  resources :sessions, only: [:new, :create, :destroy]
 
   post 'login' => 'sessions#create'
 
-  delete 'logout' => 'sessions#destroy'
+  delete 'logout' => 'sessions#destroy', as: :logout
 
   get 'logout' => 'sessions#destroy'
 

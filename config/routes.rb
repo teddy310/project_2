@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'products#index'
 
+  resources :products 
+
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', as: :logout
 
   get 'logout' => 'sessions#destroy'
+
 
 
   resources :users

@@ -29,6 +29,8 @@
     </div>
   </nav>
 <div class="container">
+<%= link_to("Add Product", new_product_path)%>
+
   <% flash.each do |name, msg| -%>
      <%= content_tag :div, msg, class: name %>
    <% end -%>

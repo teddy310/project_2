@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :products
-  has_many :contributions
-  has_many :products, through: :contributions
+  has_many :products, dependent: :destroy
+  has_many :contributions, dependent: :destroy
+  has_many :products, through: :contributions, dependent: :destroy
 
   def password=(unencrypted_password)
     #we will generate the gibberish here

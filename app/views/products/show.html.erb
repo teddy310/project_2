@@ -1,2 +1,9 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="page-header">
+  <h1><%= @product.title %><small> <%= @product.description %> </small></h1>
+</div>
+  <p> <%= @product.price %></p>
+
+  <% if @product.user_id == current_user.id %>
+  <%= link_to "edit product", edit_product_path(@product)%>
+  <% end %>
+  

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         flash[:notice] = "You have successfully updated profile."
         redirect_to root_path
       else
-        render :update
+        render :edit
       end
     else
       flash[:notice] = "unauthorized user"

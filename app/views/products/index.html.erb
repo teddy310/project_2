@@ -1,4 +1,15 @@
-<h1>Products landing page</h1>
-<p>This is where my products will go</p>
-
-<%= link_to("Create an account", new_user_path)%>
+<% @products.each do |p| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3><%= p.title %></h3>
+        <p><%= p.description %></p>
+        <p><%= p.price %></p>
+        <p><%= link_to "Go to Product", product_path(p), class: "btn btn-primary" %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>

@@ -17,7 +17,8 @@
       </div>
       <% if current_user %>
       <p> hello, <%= current_user.email %> </p>
-      <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to("Update profile", edit_user_path(current_user))%>
+      <%= link_to 'Logout', logout_path, method: :delete %>
       <% else %>
       <%= render 'sessions/login' %>
       <% end %>
@@ -28,6 +29,9 @@
     </div>
   </nav>
 <div class="container">
+  <% flash.each do |name, msg| -%>
+     <%= content_tag :div, msg, class: name %>
+   <% end -%>
   <%= yield %>
 </div>
 </body>
